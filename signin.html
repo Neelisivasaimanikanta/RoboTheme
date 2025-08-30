@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sign In with Spline Background</title>
+
+<style>
+  /* Fullscreen reset */
+  html, body {
+    margin: 0; padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+    background: black;
+    color: #eee;
+  }
+
+  /* Spline background - fixed full viewport */
+  spline-viewer {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none; /* so clicks pass through */
+  }
+
+  /* Dark overlay for contrast */
+  .overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* Center the form */
+  .signin-container {
+    position: relative;
+    z-index: 10;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  /* Glassmorphic form style */
+  .signin-box {
+    background: rgba(255 255 255 / 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 1rem;
+    padding: 2rem;
+    width: 350px;
+    box-shadow: 0 0 25px rgba(255 255 255 / 0.15);
+    color: #eee;
+  }
+
+  .signin-box h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: rgba(0 0 0 / 0.5);
+    color: #eee;
+    font-size: 1rem;
+    outline: none;
+  }
+
+  input:focus {
+    background-color: rgba(0 0 0 / 0.7);
+  }
+
+  button {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    border-radius: 2rem;
+    border: none;
+    background: #ccc;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #ff0000;
+  }
+
+  .extra-links {
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .extra-links a {
+    color: #aaa;
+    text-decoration: none;
+    margin: 0 0.25rem;
+  }
+
+  .extra-links a:hover {
+    color: white;
+  }
+</style>
+
+<!-- Spline viewer JS -->
+<script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.98/build/spline-viewer.js"></script>
+</head>
+
+<body>
+
+  <!-- Spline 3D background -->
+  <spline-viewer url="https://prod.spline.design/81adaIl4H67wpCrp/scene.splinecode"></spline-viewer>
+
+  <!-- Dark overlay -->
+  <div class="overlay"></div>
+
+  <!-- Sign-in form container -->
+  <div class="signin-container">
+    <form class="signin-box" novalidate>
+      <h2>Sign In</h2>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="you@example.com" required />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="••••••••" required />
+      </div>
+      <button type="submit">Login</button>
+      <div class="extra-links">
+        <p><a href="#">Forgot Password?</a></p>
+        <p>Don't have an account? <a href="#">Sign Up</a></p>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>
